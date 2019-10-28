@@ -45,8 +45,11 @@ WORKDIR /app
 
 RUN mix local.hex --force
 RUN mix local.rebar --force
+RUN apt-get update
+RUN apt-get -y install curl
+RUN apt-get install -y inotify-tools
 
-# install dependencies
+
 COPY mix.exs mix.lock ./
 # instead of installing deps, get it from prev build
 COPY --from=mixer /app/deps/ deps/
