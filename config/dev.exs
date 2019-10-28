@@ -71,5 +71,5 @@ config :hello_world_ci, HelloWorldCi.Repo,
   username: "postgres",
   password: "postgres",
   database: "hello_world_ci_dev",
-  hostname: "localhost",
+  hostname: "database",
   pool_size: 10
