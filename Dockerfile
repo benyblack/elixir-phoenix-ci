@@ -1,4 +1,4 @@
-FROM elixir:1.9.2 as mixer
+FROM elixir:1.9.2
 
 RUN mkdir /app
 WORKDIR /app
@@ -18,7 +18,8 @@ RUN mix deps.get
 # Copy needed files
 COPY ./config ./config
 COPY ./lib ./lib
-COPY ./priv/ ./priv/
+COPY ./priv ./priv
+COPY ./test ./test
 
 # Build client-side stuff
 COPY ./assets ./assets
