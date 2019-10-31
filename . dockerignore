@@ -1,0 +1,10 @@
+.git
+*Dockerfile*
+*docker-compose*
+node_modules
+/priv/static
+.elixir_ls
+_build
+deps
+docker
+
