@@ -15,9 +15,5 @@ services:
       build:
         context: .
         dockerfile: test.Dockerfile
-      volumes:
-        - .:/app
-      ports:
-        - "4000:4000"
       depends_on:
         - database
