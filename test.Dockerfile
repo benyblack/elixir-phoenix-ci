@@ -10,17 +10,14 @@ WORKDIR /app
 RUN mix local.hex --force
 RUN mix local.rebar --force
 
+COPY config ./config/
+COPY lib ./lib/
+COPY priv ./priv/
+
 # install dependencies
 COPY mix.exs mix.lock ./
 RUN mix deps.get
 
-# compile dependencies
-COPY config ./config/
-
-# copy only elixir files to keep the cache
-COPY lib ./lib/
-COPY priv ./priv/
-
-EXPOSE ${PORT}
+RUN mix do compile
 
 ENTRYPOINT ["mix", "test"]
