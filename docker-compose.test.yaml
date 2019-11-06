@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "hello_world_ci_test"
+      POSTGRES_DB: "hello_world_test"
     restart: always
     volumes:
       - ./docker/data/postgres:/var/lib/postgres/data
@@ -15,5 +15,7 @@ services:
       build:
         context: .
         dockerfile: test.Dockerfile
+      volumes:
+        - .:/app
       depends_on:
         - database
