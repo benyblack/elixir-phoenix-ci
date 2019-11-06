@@ -13,7 +13,7 @@ RUN mix local.rebar --force
 COPY config ./config/
 COPY lib ./lib/
 COPY priv ./priv/
-COPY test ./priv/
+COPY test ./test/
 
 # install dependencies
 COPY mix.exs mix.lock ./
