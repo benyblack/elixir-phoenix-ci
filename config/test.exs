@@ -16,3 +16,10 @@ config :hello_world_ci, HelloWorldCi.Repo,
   database: "hello_world_ci_test",
   hostname: "database",
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configure publishing test result
+config :junit_formatter,
+  report_file: "hello_world_ci-report_file_test.xml",
+  report_dir: "./",
+  print_report_file: true,
+  prepend_project_name?: true
