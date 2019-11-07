@@ -23,3 +23,7 @@ stages:
         dockerComposeFile: './docker-compose.test.yaml'
         action: 'Run a Docker Compose command'
         dockerComposeCommand: 'up --abort-on-container-exit'
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/hello_world_ci-report_file_test.xml'
