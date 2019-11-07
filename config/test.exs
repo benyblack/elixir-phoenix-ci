@@ -20,6 +20,6 @@ config :hello_world_ci, HelloWorldCi.Repo,
 # Configure publishing test result
 config :junit_formatter,
   report_file: "report_file_test.xml",
-  report_dir: "./",
+  report_dir: "./test_result",
   print_report_file: true,
   prepend_project_name?: true

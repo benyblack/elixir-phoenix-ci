@@ -15,5 +15,7 @@ services:
       build:
         context: .
         dockerfile: test.Dockerfile
+      volumes:
+          - ./test_result:/app/test_result
       depends_on:
         - database
