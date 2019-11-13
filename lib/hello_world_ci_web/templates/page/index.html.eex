@@ -1,7 +1,7 @@
 <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
   <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
-  <p>MIX_ENV= <%= System.get_env("MIX_ENV") %></p>
+  <p>Environment: <b><%= System.get_env("MIX_ENV") %></b></p>
 </section>
 
 <section class="row">
