@@ -66,6 +66,13 @@ config :logger, level: :info
 # Note you can't rely on `System.get_env/1` when using releases.
 # See the releases documentation accordingly.
 
-# Finally import the config/prod.secret.exs which should be versioned
-# separately.
-import_config "prod.secret.exs"
+config :hello_world_ci, HelloWorldCiWeb.Endpoint,
+  secret_key_base: System.get_env("SECRET_BASE_KEY")
+
+# Configure your database
+config :hello_world_ci, HelloWorldCi.Repo,
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
+  database: System.get_env("DB_NAME"),
+  hostname: System.get_env("DB_HOST"),
+  pool_size: 15
