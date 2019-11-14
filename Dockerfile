@@ -2,7 +2,7 @@ FROM elixir:1.9.2
 
 RUN mkdir /app
 WORKDIR /app
-ENV MIX_ENV=dev
+ENV MIX_ENV=prod
 
 # Install needed packages
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
