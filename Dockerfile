@@ -1,5 +1,5 @@
 FROM elixir:1.9.4 as mixer
-
+ENV LANG=C.UTF-8
 ENV MIX_ENV=prod
 
 # Install needed packages
@@ -40,6 +40,7 @@ RUN mix release --path /rel
 # if you would like to use alpine image, you have to install some needed packages
 # I use debian:stretch to avoid additional package install
 FROM debian:stretch
+ENV LANG=C.UTF-8
 
 RUN apt-get update && apt-get install -y openssl
 
