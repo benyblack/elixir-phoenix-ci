@@ -1,10 +1,9 @@
-FROM elixir:1.9.4 as mixer
+FROM elixir:1.9.4-alpine as mixer
 ENV LANG=C.UTF-8
 ENV MIX_ENV=prod
 
 # Install needed packages
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get update && apt-get -y install nodejs openssl
+RUN apk update && apk add nodejs npm
 
 RUN mkdir /app
 WORKDIR /app
@@ -37,12 +36,12 @@ RUN mix phx.digest
 RUN mkdir /rel
 RUN mix release --path /rel
 
-# if you would like to use alpine image, you have to install some needed packages
-# I use debian:stretch to avoid additional package install
-FROM debian:stretch
+
+FROM alpine  
 ENV LANG=C.UTF-8
 
-RUN apt-get update && apt-get install -y openssl
+# Install openssl
+RUN apk update && apk add openssl ncurses-libs
 
 ENV MIX_ENV=prod
 ENV PORT=4000
