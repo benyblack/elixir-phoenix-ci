@@ -1,13 +1,7 @@
 import Config
 
-config :hello_world_ci, HelloWorldCiWeb.Endpoint,
-  http: [:inet6, port: System.get_env("PORT") || 4000],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
-
 config :logger, level: :info
 
-# Get values from Environment Varable for secret_key_base and database config
 secret_key_base = System.fetch_env!("SECRET_BASE_KEY")
 db_user = System.fetch_env!("DB_USERNAME")
 db_pwd  = System.fetch_env!("DB_PASSWORD")
